@@ -4,8 +4,8 @@ import os
 from openpyxl import load_workbook
 
 # 读取Excel文件
-workbook = load_workbook(filename="/Users/John/Documents/data_qixi.xlsx")
-sheet = workbook["Sheet1"]
+workbook = load_workbook(filename="/Users/John/Documents/元旦配送计划调整2023年12月25日.xlsx")
+sheet = workbook["Sheet3"]
 
 # 将Excel数据转换为DataFrame
 df = pd.DataFrame(sheet.values)

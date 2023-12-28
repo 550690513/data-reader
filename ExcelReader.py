@@ -4,7 +4,7 @@ import os
 from openpyxl import load_workbook
 
 # 读取Excel文件
-workbook = load_workbook(filename="/Users/John/Documents/十一不收货数据.xlsx")
+workbook = load_workbook(filename="/Users/John/Documents/元旦配送计划调整2023年12月25日.xlsx")
 sheet = workbook["Sheet3"]
 
 # 将Excel数据转换为DataFrame
@@ -29,14 +29,14 @@ for index, row in df.iterrows():
     #     temp = [available_after]
 
 
-    # available_time_included = pd.to_datetime(available_after).strftime("%Y-%m-%d")
-    # available_time_excluded = pd.to_datetime(available_before).strftime("%Y-%m-%d")
-    # arrival_time_included = pd.to_datetime(arrival_after).strftime("%Y-%m-%d")
-    # arrival_time_excluded = pd.to_datetime(arrival_before).strftime("%Y-%m-%d")
-    available_time_included = available_after
-    available_time_excluded = available_before
-    arrival_time_included = arrival_after
-    arrival_time_excluded = arrival_before
+    available_time_included = pd.to_datetime(available_after).strftime("%Y-%m-%d")
+    available_time_excluded = pd.to_datetime(available_before).strftime("%Y-%m-%d")
+    arrival_time_included = pd.to_datetime(arrival_after).strftime("%Y-%m-%d")
+    arrival_time_excluded = pd.to_datetime(arrival_before).strftime("%Y-%m-%d")
+    # available_time_included = available_after
+    # available_time_excluded = available_before
+    # arrival_time_included = arrival_after
+    # arrival_time_excluded = arrival_before
 
     update = "UPDATE store_procurement_schedule SET available_time_included='[\"%s\"]', available_time_excluded='[\"%s\"]', arrival_time_included='[\"%s\"]', arrival_time_excluded='[\"%s\"]' WHERE tenant_id = 1 AND template_code='%s' AND k3store_code='%s';"
     values = (
